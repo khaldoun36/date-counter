@@ -1,0 +1,54 @@
+/* ************************** */
+/*   Google Font Import       */
+/* ************************** */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Serif+Display:ital,wght@1,700&display=swap");
+
+:root {
+  /* Font Family */
+  --ff-serif-italic: "Noto Serif Display", serif;
+  --ff-sans-normal: "Noto Sans", sans-serif;
+
+  /* Colors */
+  --clr-light: #fdfdfe;
+  --clr-dark: #252322;
+  --clr-accent: #ba58a1;
+}
+
+/* Typography */
+.ff-serif {
+  font-family: var(--ff-serif-italic);
+  font-style: italic;
+}
+.ff-sans {
+  font-family: var(--ff-sans-normal);
+  font-weight: 400;
+}
+
+/* Colors */
+.bg-light {
+  background-color: var(--clr-light);
+}
+.bg-dark {
+  background-color: var(--clr-dark);
+}
+.bg-accent {
+  background-color: var(--clr-accent);
+}
+
+.text-light {
+  color: var(--clr-light);
+}
+.text-dark {
+  color: var(--clr-dark);
+}
+.text-accent {
+  color: var(--clr-accent);
+}
+
+/* Layout */
+.container {
+  max-width: 80rem;
+  width: 100%;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}

@@ -30,7 +30,13 @@ import { useCounterStore } from "../stores/counter";
 // Calendar related variables
 const userCheckIn = ref(null);
 const userCheckOut = ref(null);
-const bookedDates = ref(["2022-03-29", "2022-03-30", "2022-03-31"]);
+const bookedDates = ref([
+  "2022-03-25",
+  "2022-03-26",
+  "2022-03-27",
+  "2022-03-28",
+  "2022-03-29",
+]);
 
 // to retrive and manipulate store values
 const store = useCounterStore();

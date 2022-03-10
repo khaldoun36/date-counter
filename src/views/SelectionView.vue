@@ -1,11 +1,7 @@
 <template>
   <main class="selection-view bg-light container body-container">
     <h2 class="text-dark ff-sans">Selected Dates</h2>
-    <Calendar
-      v-model:checkIn="userCheckIn"
-      v-model:checkOut="userCheckOut"
-      class="calendar"
-    />
+    <Calendar v-model:checkIn="userCheckIn" v-model:checkOut="userCheckOut" />
     <!-- :booked-dates="bookedDates" -->
     <div class="house-container">
       <div v-for="house in filteredHouses" :key="house.id">
@@ -16,6 +12,9 @@
 </template>
 
 <script setup>
+// date fns import
+
+import { isAfter, isBefore } from "date-fns";
 // Components Import
 import { Calendar } from "vue-calendar-3";
 
@@ -40,11 +39,20 @@ const filteredHouses = computed(() => {
   if (store.destination === "all") {
     return houses;
   } else {
-    return houses.filter((house) => house.location === store.destination);
+    return houses.filter((house) => {
+      return (
+        house.location === store.destination &&
+        isBefore(store.checkIn, new Date(house.bookedDates[0])) &&
+        isBefore(store.checkOut, new Date(house.bookedDates[0]))
+      );
+    });
   }
 });
 
-console.log(filteredHouses.value);
+console.log(
+  isBefore(store.checkIn, new Date(houses[0].bookedDates[0])),
+  isBefore(store.checkOut, new Date(houses[0].bookedDates[0]))
+);
 </script>
 
 <style>
@@ -60,6 +68,5 @@ console.log(filteredHouses.value);
   gap: var(--size-4);
   flex-wrap: wrap;
   overflow-y: auto;
-  outline: 1px red solid;
 }
 </style>

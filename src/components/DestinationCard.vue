@@ -55,6 +55,7 @@ const chooseDestination = () => {
 
 .card > h2 {
   order: 2;
+  font-size: var(--size-5);
   padding: var(--size-9) var(--size-7);
 }
 

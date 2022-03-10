@@ -3,7 +3,7 @@
     <Calendar
       v-model:checkIn="userCheckIn"
       v-model:checkOut="userCheckOut"
-      :booked-dates="BookedDates"
+      :booked-dates="bookedDates"
       class="calendar"
     />
     <DestinationsContainer />
@@ -30,23 +30,18 @@ import { useCounterStore } from "../stores/counter";
 // Calendar related variables
 const userCheckIn = ref(null);
 const userCheckOut = ref(null);
-const BookedDates = ref(["2022-03-29", "2022-03-30", "2022-03-31"]);
+const bookedDates = ref(["2022-03-29", "2022-03-30", "2022-03-31"]);
 
 // to retrive and manipulate store values
 const store = useCounterStore();
 
 // // to expose the rout object
-// const route = useRouter();
+const route = useRouter();
 
 const handleClick = () => {
   store.changeCheckIn(userCheckIn.value);
   store.changeCheckOut(userCheckOut.value);
-
-  // Delete start
-  console.log(store.checkIn, "check in");
-  console.log(store.checkOut, "check out");
-  console.log(store.destination, "destination");
-  // Delete end
+  route.push("/selection");
 };
 </script>
 

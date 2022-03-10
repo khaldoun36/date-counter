@@ -5,7 +5,7 @@ export const useCounterStore = defineStore({
   state: () => ({
     checkIn: new Date(),
     checkOut: new Date(),
-    destination: null,
+    destination: "all",
   }),
   actions: {
     changeCheckIn(ReceivedCheckIn) {

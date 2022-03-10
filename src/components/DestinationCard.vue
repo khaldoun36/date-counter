@@ -1,7 +1,12 @@
 <template>
   <div class="card" :aria-selected="truth" @click="chooseDestination">
-    <div class="card-image"></div>
-    <h2 ref="destinationTitle" class="ff-sans text-light">Dubai</h2>
+    <div
+      class="card-image"
+      :style="{ backgroundImage: `url(${destination.image})` }"
+    ></div>
+    <h2 ref="destinationTitle" class="ff-sans text-light">
+      {{ destination.name }}
+    </h2>
   </div>
 </template>
 
@@ -9,6 +14,12 @@
 import { ref } from "vue";
 // Pinia Store to store the user chosen destination
 import { useCounterStore } from "../stores/counter";
+
+// Recived Props
+
+const props = defineProps({
+  destination: Object,
+});
 
 // to retrive and manipulate store values
 const store = useCounterStore();
@@ -36,7 +47,6 @@ const chooseDestination = () => {
   overflow: hidden;
   background-color: var(--clr-accent);
   transition: transform 250ms ease-in-out;
-  flex-grow: 1;
 }
 
 .card[aria-selected="true"] {
@@ -49,12 +59,10 @@ const chooseDestination = () => {
 }
 
 .card > .card-image {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  background-image: url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  aspect-ratio: 16/10;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   order: 1;
 }
 </style>

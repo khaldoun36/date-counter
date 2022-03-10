@@ -1,7 +1,9 @@
 <template>
   <div class="bg-light">
     <header class="primary-nav">
-      <h1 class="logo ff-serif text-accent">Travelly</h1>
+      <router-link to="/" class="logo ff-serif text-accent"
+        >Travelly</router-link
+      >
     </header>
     <router-view />
   </div>

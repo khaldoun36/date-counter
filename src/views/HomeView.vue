@@ -62,6 +62,7 @@ const handleClick = () => {
 
 .calendar {
   outline: 1px solid var(--clr-dark);
+  border-radius: var(--radius-2);
   font-family: var(--sans-normal);
   color: var(--clr-dark);
 }

@@ -4,21 +4,22 @@
       v-model:checkIn="userCheckIn"
       v-model:checkOut="userCheckOut"
       :booked-dates="bookedDates"
-      class="calendar"
+      :period-dates="periodDates"
+      class="calendar-container"
     />
-    <DestinationsContainer />
+    <DestinationsContainer class="destination-container" />
     <ChangeButon @click="handleClick" class="submit-button" />
   </main>
 </template>
 
 <script setup>
 // Components Import
-import { Calendar } from "vue-calendar-3";
+import { Calendar } from "@khaldoonalnuaimi/vue-calendar-3";
 import DestinationsContainer from "../components/DestinationsContainer.vue";
 import ChangeButon from "../components/SubmitButon.vue";
 
 // Styles Import
-import "vue-calendar-3/style";
+import "@khaldoonalnuaimi/vue-calendar-3/style";
 
 // Hooks Import
 import { useRouter } from "vue-router";
@@ -26,6 +27,9 @@ import { ref } from "vue";
 
 // Pinia Store to store the user chosen destination
 import { useCounterStore } from "../stores/counter";
+
+// to retrive and manipulate store values
+const store = useCounterStore();
 
 // Calendar related variables
 const userCheckIn = ref(null);
@@ -38,8 +42,7 @@ const bookedDates = ref([
   "2022-03-29",
 ]);
 
-// to retrive and manipulate store values
-const store = useCounterStore();
+const periodDates = ref(store.periodDates);
 
 // // to expose the rout object
 const route = useRouter();
@@ -61,11 +64,16 @@ const handleClick = () => {
   align-items: center;
 }
 
-.calendar {
+.calendar-container {
   outline: 1px solid var(--clr-dark);
   border-radius: var(--radius-2);
   font-family: var(--sans-normal);
   color: var(--clr-dark);
+  z-index: 1;
+}
+
+.destination-container {
+  z-index: 0;
 }
 .submit-button {
   align-self: flex-start;

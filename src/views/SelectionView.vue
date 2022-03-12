@@ -14,15 +14,15 @@
 <script setup>
 // date fns import
 
-import { isAfter, isBefore } from "date-fns";
+import { isBefore } from "date-fns";
 // Components Import
-import { Calendar } from "vue-calendar-3";
+import { Calendar } from "@khaldoonalnuaimi/vue-calendar-3";
 
 // Data Import
 import houses from "../data/housesData";
 
 // Styles Import
-import "vue-calendar-3/style";
+import "@khaldoonalnuaimi/vue-calendar-3/style";
 import HouseDetails from "../components/HouseDetails.vue";
 
 // Pinia Store to store the user chosen destination

@@ -30,10 +30,10 @@ getDocs(colRef)
       retrivedBookedDates.push(doc.data());
     });
     retrivedBookedDates.forEach((bookedDate) => {
-      myBookedDates.push(bookedDate.bookedDate);
+      return myBookedDates.push(bookedDate.bookedDate);
     });
-    return myBookedDates;
   })
+
   .catch((err) => {
     console.log(err.message);
   });

@@ -6,6 +6,7 @@ export const useCounterStore = defineStore({
     checkIn: new Date(),
     checkOut: new Date(),
     destination: "all",
+    loading: true,
     /* 
 
     The period dates are assumed to be peak seasons, so only during these periods does the minimum stay apply.
@@ -31,6 +32,9 @@ export const useCounterStore = defineStore({
     },
     changeDestination(ReceivedDestintion) {
       this.destination = ReceivedDestintion;
+    },
+    changeLoading() {
+      this.loading = !this.loading;
     },
   },
 });

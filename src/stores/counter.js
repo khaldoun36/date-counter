@@ -15,8 +15,8 @@ export const useCounterStore = defineStore({
     */
     periodDates: [
       {
-        startAt: "2022-03-01",
-        endAt: "2022-04-31",
+        startAt: "2022-03-13",
+        endAt: "2022-03-13",
         minimumDuration: 4,
         periodType: "nightly",
       },
